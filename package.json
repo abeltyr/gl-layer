@@ -1,6 +1,6 @@
 {
   "name": "gl-layer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "A lightweight WebGL setup layer that simplifies renderer management, uniform handling, and cleanup.",
   "main": "dist/index.js",
