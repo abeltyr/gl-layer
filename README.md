@@ -90,8 +90,12 @@ function render() {
 
 // Animation loop
 function animate(time) {
-  gl.uniform1f(programInfoRefCurrent.uniformLocations.uTime, time * 0.001);
-  render();
+  setFloatUniform({
+    gl:glRef.current,
+     uniformLocation: programInfoRef.current.uniformLocations.uTime,
+      value: seconds, 
+      render: true
+  })
   requestAnimationFrame(animate);
 }
 
@@ -110,10 +114,13 @@ Here's how to use GL-Layer with React hooks:
 
 ```tsx
 import React, { useEffect, useRef, useCallback } from 'react';
+// custom shaders
+import { shaders } from 'shaders';
 import {
   initializeWebGL,
   renderWebGL,
-  cleanupWebGLResources
+  cleanupWebGLResources,
+
 } from 'gl-layer';
 
 const WebGLCanvas = ({ shaders, uniforms, size }) => {
@@ -138,10 +145,10 @@ const WebGLCanvas = ({ shaders, uniforms, size }) => {
       const data = initializeWebGL({
         gl,
         shader: {
-          fragmentShaderSource: shaders.mainShader.fragmentShaderSource,
-          vertexShaderSource: shaders.mainShader.vertexShaderSource,
+          fragmentShaderSource: shaders.layout.fragmentShaderSource,
+          vertexShaderSource: shaders.layout.vertexShaderSource,
         },
-        uniforms: uniforms.gridBox
+        uniforms: shaders.layout.uniform
       });
       
       if (data) {
@@ -157,17 +164,13 @@ const WebGLCanvas = ({ shaders, uniforms, size }) => {
         });
       }
     }
-  }, [shaders, uniforms, size]);
+  }, [shaders, size]);
   
   // Animation function
   const animate = useCallback((time) => {
     if (glRef.current && programInfoRef.current) {
       const seconds = time * 0.001; // Convert time to seconds
-      glRef.current.uniform1f(
-        programInfoRef.current.uniformLocations.uTime,
-        seconds
-      );
-      glRef.current.drawArrays(glRef.current.TRIANGLE_STRIP, 0, 4);
+      setFloatUniform({gl:glRef.current, uniformLocation: programInfoRef.current.uniformLocations.uTime, value: seconds, render: true})
       requestAnimationFrame(animate);
     }
   }, []);
@@ -344,7 +347,7 @@ cleanupWebGLResources(canvas);
 ```
 
 ## Utilities
-
+****
 #### `hexToNormalizedRGB(hex)`
 
 Converts a hex color string to normalized RGB values.
