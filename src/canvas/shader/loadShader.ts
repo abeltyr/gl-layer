@@ -1,9 +1,7 @@
+import { ShaderParams } from "@/canvas/types/texture-shader.types";
+
 // Create shader of specific type
-export const loadShader = (
-  gl: WebGLRenderingContext,
-  type: number,
-  source: string,
-) => {
+export const loadShader = ({ gl, type, source }: ShaderParams) => {
   const shader = gl.createShader(type);
   if (!shader) return null;
 

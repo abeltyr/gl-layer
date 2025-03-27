@@ -1,21 +1,23 @@
 import { loadShader } from "./loadShader";
 
+import { ShaderProgramParams } from "@/canvas/types/texture-shader.types";
+
 // Initialize shader program
 export function initShaderProgram({
   gl,
   fragmentShaderSource,
   vertexShaderSource,
-}: {
-  gl: WebGLRenderingContext;
-  fragmentShaderSource: string;
-  vertexShaderSource: string;
-}) {
-  const vertexShader = loadShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-  const fragmentShader = loadShader(
+}: ShaderProgramParams) {
+  const vertexShader = loadShader({
     gl,
-    gl.FRAGMENT_SHADER,
-    fragmentShaderSource,
-  );
+    type: gl.VERTEX_SHADER,
+    source: vertexShaderSource,
+  });
+  const fragmentShader = loadShader({
+    gl,
+    type: gl.FRAGMENT_SHADER,
+    source: fragmentShaderSource,
+  });
 
   if (!vertexShader || !fragmentShader) return null;
 

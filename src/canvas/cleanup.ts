@@ -1,6 +1,6 @@
-export const cleanupWebGLResources = async (
-  canvas?: HTMLCanvasElement | null,
-) => {
+import { CleanupWebGLParams } from "./types/render.types";
+
+export const cleanupWebGLResources = async ({ canvas }: CleanupWebGLParams) => {
   if (canvas) {
     const gl = canvas.getContext("webgl");
     if (gl) {

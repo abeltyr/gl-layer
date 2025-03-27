@@ -1,19 +1,12 @@
+import { RenderWebGLParams } from "../types/render.types";
+
 export const renderWebGL = async ({
   gl,
   buffersRefCurrent,
   programInfoRefCurrent,
   size,
   secondLayer,
-}: {
-  gl: WebGLRenderingContext;
-  programInfoRefCurrent: any;
-  buffersRefCurrent: any;
-  size: {
-    width: number;
-    height: number;
-  };
-  secondLayer?: () => void;
-}) => {
+}: RenderWebGLParams) => {
   gl.clearColor(0.0, 0.0, 0.0, 1.0);
   gl.clear(gl.COLOR_BUFFER_BIT);
 

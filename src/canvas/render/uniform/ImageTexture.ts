@@ -1,5 +1,7 @@
 import { loadImageTextures } from "@/canvas/texture/loadImageTextures";
 
+import { ImageUniformParams } from "../../types/uniform.types";
+
 export const setImageUniform = async ({
   gl,
   textureNumber,
@@ -7,14 +9,7 @@ export const setImageUniform = async ({
   index,
   uniformLocation,
   render = false,
-}: {
-  gl: WebGLRenderingContext;
-  textureNumber: number;
-  texture: WebGLTexture | string;
-  uniformLocation: any;
-  index: number;
-  render: boolean;
-}) => {
+}: ImageUniformParams) => {
   let textureData: WebGLTexture = texture;
   if (typeof texture === "string") {
     const data = await loadImageTextures({ gl, images: [texture] });

@@ -1,8 +1,10 @@
+import { TextureParams } from "@/canvas/types/texture-shader.types";
+
 // Load texture from image URL
-export const loadTexture = (
-  gl: WebGLRenderingContext,
-  url: string,
-): Promise<WebGLTexture | null> => {
+export const loadTexture = ({
+  gl,
+  url,
+}: TextureParams): Promise<WebGLTexture | null> => {
   const texture = gl.createTexture();
   if (!texture) return Promise.resolve(null);
 

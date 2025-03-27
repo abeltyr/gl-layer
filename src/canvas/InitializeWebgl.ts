@@ -1,26 +1,13 @@
 import { initShaderProgram } from "@/canvas/shader/program";
 import { initBuffers } from "@/canvas/buffer/initBuffers";
+import { InitializeWebGLParams, ProgramInfo } from "@/canvas/types/webgl.types";
 
 export const initializeWebGL = ({
   gl,
   uniforms,
   shader,
   attributes,
-}: {
-  gl: WebGLRenderingContext;
-  uniforms?: {
-    uniformName: string;
-    webglName: string;
-  }[];
-  attributes?: {
-    attributeName: string;
-    webglName: string;
-  }[];
-  shader: {
-    fragmentShaderSource: string;
-    vertexShaderSource: string;
-  };
-}) => {
+}: InitializeWebGLParams) => {
   // Initialize shader program
   const shaderProgram = initShaderProgram({
     gl,
@@ -51,7 +38,7 @@ export const initializeWebGL = ({
         attribLocations[attribute.attributeName] = attribLocationData;
     }
 
-  const programInfoRefCurrent = {
+  const programInfoRefCurrent: ProgramInfo = {
     program: shaderProgram,
     attribLocations: {
       vertexPosition: gl.getAttribLocation(shaderProgram, "aVertexPosition"),
