@@ -1,4 +1,4 @@
-import { Vec2UniformParams } from "../../types/uniform.types";
+import { Vec2UniformParams } from "../../../types/uniform.types";
 
 export const setVec2Uniform = async ({
   gl,

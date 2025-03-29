@@ -1,7 +1,7 @@
 export interface BaseUniformParams {
   gl: WebGLRenderingContext;
   uniformLocation: WebGLUniformLocation;
-  render: boolean;
+  render?: boolean;
 }
 
 export interface Vec2Value {

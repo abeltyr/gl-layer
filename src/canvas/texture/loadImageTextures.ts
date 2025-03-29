@@ -1,6 +1,6 @@
 import { loadTexture } from "./loadTexture";
 
-import { TexturesParams } from "@/canvas/types/texture-shader.types";
+import { TexturesParams } from "@/types/texture-shader.types";
 
 export const loadImageTextures = async ({
   gl,

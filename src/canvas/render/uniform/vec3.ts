@@ -1,4 +1,4 @@
-import { Vec3UniformParams } from "../../types/uniform.types";
+import { Vec3UniformParams } from "../../../types/uniform.types";
 
 export const setVec3Uniform = async ({
   gl,

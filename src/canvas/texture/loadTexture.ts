@@ -1,4 +1,4 @@
-import { TextureParams } from "@/canvas/types/texture-shader.types";
+import { TextureParams } from "@/types/texture-shader.types";
 
 // Load texture from image URL
 export const loadTexture = ({

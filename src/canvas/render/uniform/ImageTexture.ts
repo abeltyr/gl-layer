@@ -1,6 +1,6 @@
 import { loadImageTextures } from "@/canvas/texture/loadImageTextures";
 
-import { ImageUniformParams } from "../../types/uniform.types";
+import { ImageUniformParams } from "../../../types/uniform.types";
 
 export const setImageUniform = async ({
   gl,

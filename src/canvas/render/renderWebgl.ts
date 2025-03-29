@@ -1,4 +1,4 @@
-import { RenderWebGLParams } from "../types/render.types";
+import { RenderWebGLParams } from "../../types/render.types";
 
 export const renderWebGL = async ({
   gl,

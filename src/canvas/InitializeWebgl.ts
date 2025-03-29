@@ -1,6 +1,6 @@
 import { initShaderProgram } from "@/canvas/shader/program";
 import { initBuffers } from "@/canvas/buffer/initBuffers";
-import { InitializeWebGLParams, ProgramInfo } from "@/canvas/types/webgl.types";
+import { InitializeWebGLParams, ProgramInfo } from "@/types/webgl.types";
 
 export const initializeWebGL = ({
   gl,

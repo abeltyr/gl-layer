@@ -1,6 +1,6 @@
 import { loadShader } from "./loadShader";
 
-import { ShaderProgramParams } from "@/canvas/types/texture-shader.types";
+import { ShaderProgramParams } from "@/types/texture-shader.types";
 
 // Initialize shader program
 export function initShaderProgram({

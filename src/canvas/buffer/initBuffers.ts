@@ -1,6 +1,6 @@
 // Initialize buffers for vertex positions and texture coordinates
 
-import { BufferInitializationResult } from "../types/render.types";
+import { BufferInitializationResult } from "../../types/render.types";
 
 export const initBuffers = (
   gl: WebGLRenderingContext,

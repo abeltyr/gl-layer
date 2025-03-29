@@ -1,4 +1,4 @@
-import { CleanupWebGLParams } from "./types/render.types";
+import { CleanupWebGLParams } from "../types/render.types";
 
 export const cleanupWebGLResources = async ({ canvas }: CleanupWebGLParams) => {
   if (canvas) {

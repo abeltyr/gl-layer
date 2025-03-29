@@ -1,4 +1,4 @@
-import { ShaderParams } from "@/canvas/types/texture-shader.types";
+import { ShaderParams } from "@/types/texture-shader.types";
 
 // Create shader of specific type
 export const loadShader = ({ gl, type, source }: ShaderParams) => {

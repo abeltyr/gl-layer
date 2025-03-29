@@ -1,4 +1,4 @@
-import { FloatUniformParams } from "../../types/uniform.types";
+import { FloatUniformParams } from "../../../types/uniform.types";
 
 export const setFloatUniform = async ({
   gl,
